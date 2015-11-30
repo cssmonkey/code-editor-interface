@@ -1,0 +1,20 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"../sass/styles.scss",
+		"../sass/helpers/_variables.scss",
+		"../sass/helpers/_mixins.scss",
+		"../sass/helpers/_functions.scss",
+		"../sass/themes/_default.scss",
+		"../sass/base/_reset.scss",
+		"../sass/base/_base.scss",
+		"../sass/base/_typography.scss",
+		"../sass/layout/_grid.scss",
+		"../sass/forms/generic.scss",
+		"../sass/components/resizable-panels.scss",
+		"../sass/responsive/_breakpoints.scss"
+	],
+	"mappings": "AAaA,wBAAwB;AUbxB,UAAU,CAAC;EACT,MAAM,EAAE,aAAc;EACtB,OAAO,EAAE,IAAK,GAOf;EATD,mBAAU,CAIG;IACT,KAAK,EAAE,IAAK;IACZ,UAAU,EAAE,KAAM;IAClB,MAAM,EAAE,UAAW,GACpB;;AAEH,gBAAgB,CAAC;EACf,KAAK,EAAE,GAAI;EACX,gBAAgB,EAAE,IAAK;EACvB,OAAO,EAAE,YAAa;EACtB,MAAM,EAAE,KAAM,GACf",
+	"names": []
+}

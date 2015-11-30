@@ -1,0 +1,4 @@
+﻿{
+    "default": [ "sass:dist", "browserSync", "watch" ],
+    "css": [ "sass:dist" ]
+}

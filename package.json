@@ -1,0 +1,23 @@
+{
+  "name": "Grunt-boilerplate",
+  "version": "1.0.0",
+  "description": "Starter config for Grunt",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sean Jones",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "draggabilly": "^1.2.4",
+    "grunt": "*",
+    "grunt-browser-sync": "*",
+    "grunt-combine-media-queries": "^1.0.19",
+    "grunt-contrib-watch": "*",
+    "grunt-postcss": "^0.7.1",
+    "grunt-sass": "^1.1.0",
+    "jquery": "^2.1.4",
+    "load-grunt-config": "^0.19.0"
+  }
+}

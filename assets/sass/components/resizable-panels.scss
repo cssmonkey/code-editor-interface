@@ -1,0 +1,16 @@
+.resizable {
+  border: 1px solid red;
+  display: flex;
+
+  &__resizer {
+    width: 20px;
+    background: brown;
+    cursor: col-resize;
+  }
+}
+.resizable-panel {
+  width: 20%;
+  background-color: #ccc;
+  display: inline-block;
+  height: 200px;
+}

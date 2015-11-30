@@ -1,0 +1,16 @@
+/* Components go here */
+.resizable {
+  border: 1px solid red;
+  display: flex; }
+  .resizable__resizer {
+    width: 20px;
+    background: brown;
+    cursor: col-resize; }
+
+.resizable-panel {
+  width: 20%;
+  background-color: #ccc;
+  display: inline-block;
+  height: 200px; }
+
+/*# sourceMappingURL=styles.css.map */
