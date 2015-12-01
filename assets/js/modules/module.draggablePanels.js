@@ -34,11 +34,22 @@ window.APP = (function (module, $) {
           //   $otherPanels.addClass('resizable-panel--rigid')
           // }
 
-
-
       });
       $dragX.on('dragEnd', function() {
         $('.resizable-panel--rigid', _$container).removeClass('resizable-panel--rigid');
+      });
+      
+      _$container.on('click', '.resizable__fullsize', function(e) {
+        e.preventDefault();
+        
+        var $container = $(this).closest('.resizable'),
+            $thisPanel = $(this).closest('.resizable-panel'),
+            $otherPanels = $('.resizable-panel', $container).filter(function(i){return i != $thisPanel.index();});
+        
+        $otherPanels.css('flex', '0 0 0');
+        $thisPanel.css('flex', '1 0 0');
+        console.log($container);
+        $container.addClass('resizable--fullsize-enabled');
       });
 
     }

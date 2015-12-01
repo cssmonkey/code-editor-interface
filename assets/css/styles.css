@@ -118,32 +118,43 @@ p {
     background-color: #fff;
     height: 300px;
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px; }
   .resizable-panel__label {
     font-size: 12px;
     padding: 0.5rem 0.8rem;
     background: #ddd;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     border-radius: 0 0 0 3px;
     opacity: 0.8;
     white-space: nowrap; }
 
 .resizable--inline .resizable-panel {
   flex: 1 0 0; }
+  .resizable--inline .resizable-panel:last-child .resizable-panel__label:last-child {
+    right: 0; }
 
 .resizable--inline .resizable-panel:nth-child(2) {
   background: #f2f2f2; }
 
-.resizable--inline .resizable-panel--is-resized {
-  flex: initial; }
+.resizable--inline .resizable__resizer--xaxis {
+  margin-left: -10px; }
 
 .resizable--inline .resizable__resizer--xaxis:nth-child(1) {
   left: 33.3333%; }
 
 .resizable--inline .resizable__resizer--xaxis:nth-child(2) {
   left: 66.6666%; }
+
+.resizable--inline.resizable--fullsize-enabled .resizable__resizer--xaxis:nth-child(1) {
+  left: 0; }
+
+.resizable--inline.resizable--fullsize-enabled .resizable__resizer--xaxis:nth-child(2) {
+  left: 100%;
+  margin-left: -20px; }
 
 .resizable--top {
   flex-wrap: wrap; }
