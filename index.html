@@ -11,15 +11,51 @@
 
 </head>
 <body>
-<h1>Resizable panels</h1>
-<div class="resizable">
-  <div class="resizable-panel"></div>
-  <div class="resizable__resizer"></div>
-  <div class="resizable-panel"></div>
-  <div class="resizable__resizer"></div>
-  <div class="resizable-panel"></div>
-</div>
+  <div class="container">
+    <h1>Resizable panels</h1>
+    <div class="resizable resizable--inline" data-layout="inline">
+      <div class="resizable__controls">
+        <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--a"></div>
+        <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--b"></div>
+      </div>
+      <div class="resizable__panels">
+        <div class="resizable-panel">
+          <div class="resizable-panel__header">
+            <button class="resizable__fullsize" title="fullsize">fullsize</button>
+            <span class="resizable-panel__label">Input case</span>
+          </div>
+        </div>
+        <div class="resizable-panel">
+          <div class="resizable-panel__header">
+            <button class="resizable__fullsize" title="fullsize">fullsize</button>
+            <span class="resizable-panel__label">Output case</span>
+          </div>
+        </div>
+        <div class="resizable-panel">
+          <div class="resizable-panel__header">
+            <button class="resizable__fullsize" title="fullsize">fullsize</button>
+            <span class="resizable-panel__label">Log</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="resizable resizable--top" data-layout="top" style="display: none;">
+      <div class="resizable-panel"><span class="resizable-panel__label">Input case</span></div>
+      <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--a"></div>
+      <div class="resizable-panel"><span class="resizable-panel__label">Output case</span></div>
+      <div class="resizable__resizer resizable__resizer--yaxis resizable__resizer--b"></div>
+      <div class="resizable-panel"><span class="resizable-panel__label">Log</span></div>
+    </div>
+
+    <div class="resizable resizable--side" data-layout="side" style="display: none;">
+      <div class="resizable-panel"><span class="resizable-panel__label">Input case</span></div>
+      <div class="resizable__resizer resizable__resizer--yaxis resizable__resizer--a"></div>
+      <div class="resizable-panel"><span class="resizable-panel__label">Output case</span></div>
+      <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--b"></div>
+      <div class="resizable-panel"><span class="resizable-panel__label">Log</span></div>
+    </div>
+</div>
 <script src="/assets/js/libs/jquery.min.js"></script>
 <script src="/assets/js/libs/draggabilly.pkgd.min.js"></script>
 <script src="/assets/js/modules/module.draggablePanels.js"></script>

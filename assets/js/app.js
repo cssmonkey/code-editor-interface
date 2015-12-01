@@ -2,7 +2,7 @@ window.APP = (function (module, $) {
     "use strict";
 
     $(function() {
-      module.draggablePanels();
+      module.draggablePanels.init();
     });
 
   return module;

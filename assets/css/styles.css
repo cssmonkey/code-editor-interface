@@ -1,16 +1,183 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  font-size: 62.5%;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  background: #ddd; }
+
+.container {
+  padding: 1.8rem; }
+
+h1, h2, h3, h3, h5, h6 {
+  font-weight: normal;
+  font-style: normal;
+  color: inherit;
+  margin-bottom: 2rem;
+  line-height: 1.4; }
+
+h1 {
+  font-size: 48px; }
+
+h2 {
+  font-size: 40px; }
+
+h3 {
+  font-size: 32px; }
+
+h4 {
+  font-size: 25px; }
+
+h5 {
+  font-size: 20px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  margin-bottom: 1.6rem;
+  font-size: 16px;
+  line-height: 24px; }
+
 /* Components go here */
 .resizable {
-  border: 1px solid red;
-  display: flex; }
+  margin: 60px 0;
+  border: 4px solid #bfbfbf;
+  position: relative; }
+  .resizable__controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
+  .resizable__panels {
+    display: flex;
+    align-content: stretch; }
   .resizable__resizer {
+    background: #f7f7f7;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0; }
+  .resizable__resizer--xaxis {
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    cursor: col-resize;
     width: 20px;
-    background: brown;
-    cursor: col-resize; }
+    height: 300px; }
+  .resizable__resizer--yaxis {
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    cursor: row-resize;
+    height: 20px; }
+  .resizable-panel {
+    background-color: #fff;
+    height: 300px;
+    position: relative;
+    overflow: hidden; }
+  .resizable-panel__label {
+    font-size: 12px;
+    padding: 0.5rem 0.8rem;
+    background: #ddd;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 3px;
+    opacity: 0.8;
+    white-space: nowrap; }
 
-.resizable-panel {
-  width: 20%;
-  background-color: #ccc;
-  display: inline-block;
-  height: 200px; }
+.resizable--inline .resizable-panel {
+  flex: 1 0 0; }
+
+.resizable--inline .resizable-panel:nth-child(2) {
+  background: #f2f2f2; }
+
+.resizable--inline .resizable-panel--is-resized {
+  flex: initial; }
+
+.resizable--inline .resizable__resizer--xaxis:nth-child(1) {
+  left: 33.3333%; }
+
+.resizable--inline .resizable__resizer--xaxis:nth-child(2) {
+  left: 66.6666%; }
+
+.resizable--top {
+  flex-wrap: wrap; }
+  .resizable--top .resizable-panel {
+    width: calc(50% - 10px);
+    height: 150px; }
+  .resizable--top .resizable-panel:last-child {
+    width: 100%;
+    flex-basis: 100%; }
+
+.resizable--side {
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative; }
+  .resizable--side .resizable-panel {
+    width: calc(50% - 10px);
+    height: 150px; }
+  .resizable--side .resizable-panel:last-child {
+    width: calc(50% - 10px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%; }
+  .resizable--side .resizable__resizer--a {
+    width: calc(50% - 10px);
+    height: 20px; }
+  .resizable--side .resizable__resizer--b {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -10px;
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8; }
 
 /*# sourceMappingURL=styles.css.map */
