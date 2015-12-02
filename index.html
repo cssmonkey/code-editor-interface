@@ -73,7 +73,14 @@
 </div>
 <script src="/assets/js/libs/jquery.min.js"></script>
 <script src="/assets/js/libs/draggabilly.pkgd.min.js"></script>
+<script src="/assets/js/libs/ace/ace.js"></script>
 <script src="/assets/js/modules/module.draggablePanels.js"></script>
 <script src="/assets/js/app.js"></script>
+
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
 </body>
 </html>

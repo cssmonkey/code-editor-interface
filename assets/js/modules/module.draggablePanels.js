@@ -100,8 +100,8 @@ window.APP = (function (module, $) {
       var $resizedPanels = $('.resizable-panel', $panelsContainer).filter(function(i){return i != 2;}),
           setPanelHeights = function() {
             setTimeout(function () {
-                $resizedPanels.height(containerHeight/2);
-            }, 0);
+             $resizedPanels.height(containerHeight/2);
+            }, 100);
           };
 
       // setup dragging
@@ -113,7 +113,6 @@ window.APP = (function (module, $) {
 
       setPanelHeights();
       $window.on('onResizeEnd', function() {
-        debugger;
         if($panelsContainer.data('layout') == 'side') {
           containerWidth = $panelsContainer.width();
           containerHeight = $panelsContainer.height();

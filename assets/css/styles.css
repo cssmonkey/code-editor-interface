@@ -2226,7 +2226,6 @@ p {
   .resizable-panel--expand {
     flex: 1 0 100%; }
   .resizable-panel__content {
-    overflow: scroll;
     position: relative;
     z-index: 1;
     background: #f4f4f4; }
