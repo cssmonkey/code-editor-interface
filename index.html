@@ -13,28 +13,59 @@
 <body>
   <div class="container">
     <h1>Resizable panels</h1>
-    <div class="resizable resizable--inline" data-layout="inline">
-      <div class="resizable__controls">
-        <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--a"></div>
-        <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--b"></div>
+    <div class="resizable" data-layout="top">
+      <div class="btn-group resizer-controls--layout-toggle">
+        <button class="btn" data-layouttoggle="inline">inline</button>
+        <button class="btn btn--active" data-layouttoggle="top">top</button>
+        <button class="btn" data-layouttoggle="side">side</button>
+      </div>
+      <div class="resizer-controls">
+        <div class="btn-group resizer-controls--handles">
+          <div class="resizer-controls__handle"></div>
+          <div class="resizer-controls__handle"></div>
+        </div>
       </div>
       <div class="resizable__panels">
         <div class="resizable-panel">
           <div class="resizable-panel__header">
-            <button class="resizable__fullsize" title="fullsize">fullsize</button>
+            <div class="resizable-panel__controls">
+              <button class="btn resizer-btn resizer-btn--expand" title="Expand"><span>Expand</span></button>
+              <button class="btn resizer-btn resizer-btn--collapse" title="Collapse"><span>Collapse</span></button>
+            </div>
             <span class="resizable-panel__label">Input case</span>
           </div>
-        </div>
-        <div class="resizable-panel">
-          <div class="resizable-panel__header">
-            <button class="resizable__fullsize" title="fullsize">fullsize</button>
-            <span class="resizable-panel__label">Output case</span>
+          <div class="resizable-panel__content">
+            <div class="resizable-panel__codeblock">
+              <p>code editor goes here</p>
+            </div>
           </div>
         </div>
         <div class="resizable-panel">
           <div class="resizable-panel__header">
-            <button class="resizable__fullsize" title="fullsize">fullsize</button>
+            <div class="resizable-panel__controls">
+              <button class="btn resizer-btn resizer-btn--expand" title="Expand"><span>Expand</span></button>
+              <button class="btn resizer-btn resizer-btn--collapse" title="Collapse"><span>Collapse</span></button>
+            </div>
+            <span class="resizable-panel__label">Output case</span>
+          </div>
+          <div class="resizable-panel__content">
+            <div class="resizable-panel__codeblock">
+              <p>code editor goes here</p>
+            </div>
+          </div>
+        </div>
+        <div class="resizable-panel">
+          <div class="resizable-panel__header">
+            <div class="resizable-panel__controls">
+              <button class="btn resizer-btn resizer-btn--expand" title="Expand"><span>Expand</span></button>
+              <button class="btn resizer-btn resizer-btn--collapse" title="Collapse"><span>Collapse</span></button>
+            </div>
             <span class="resizable-panel__label">Log</span>
+          </div>
+          <div class="resizable-panel__content">
+            <div class="resizable-panel__codeblock">
+              <p>code editor goes here</p>
+            </div>
           </div>
         </div>
       </div>

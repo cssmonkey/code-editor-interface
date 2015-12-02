@@ -2,16 +2,13 @@
 @import 'helpers/mixins';
 @import 'helpers/functions';
 
+@import 'libs/font-awesome';
+
 @import 'themes/default';
 
 @import 'base/reset';
 @import 'base/base';
-@import 'base/typography';
-
-@import 'layout/grid';
-@import 'forms/generic';
+@import 'base/typography'; 
 
 /* Components go here */
 @import 'components/resizable-panels';
-
-@import 'responsive/breakpoints';

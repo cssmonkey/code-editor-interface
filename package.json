@@ -11,6 +11,7 @@
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "draggabilly": "^1.2.4",
+    "font-awesome": "^4.5.0",
     "grunt": "*",
     "grunt-browser-sync": "*",
     "grunt-combine-media-queries": "^1.0.19",
