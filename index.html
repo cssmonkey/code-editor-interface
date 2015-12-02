@@ -12,12 +12,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Resizable panels</h1>
-    <div class="resizable" data-layout="top">
+    <div class="resizable" data-layout="side" data-fullscreen>
       <div class="btn-group resizer-controls--layout-toggle">
         <button class="btn" data-layouttoggle="inline">inline</button>
-        <button class="btn btn--active" data-layouttoggle="top">top</button>
-        <button class="btn" data-layouttoggle="side">side</button>
+        <button class="btn" data-layouttoggle="top">top</button>
+        <button class="btn btn--active" data-layouttoggle="side">side</button>
+        <button class="btn btn--execute btn--large">Run</button>
       </div>
       <div class="resizer-controls">
         <div class="btn-group resizer-controls--handles">
@@ -69,22 +69,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="resizable resizable--top" data-layout="top" style="display: none;">
-      <div class="resizable-panel"><span class="resizable-panel__label">Input case</span></div>
-      <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--a"></div>
-      <div class="resizable-panel"><span class="resizable-panel__label">Output case</span></div>
-      <div class="resizable__resizer resizable__resizer--yaxis resizable__resizer--b"></div>
-      <div class="resizable-panel"><span class="resizable-panel__label">Log</span></div>
-    </div>
-
-    <div class="resizable resizable--side" data-layout="side" style="display: none;">
-      <div class="resizable-panel"><span class="resizable-panel__label">Input case</span></div>
-      <div class="resizable__resizer resizable__resizer--yaxis resizable__resizer--a"></div>
-      <div class="resizable-panel"><span class="resizable-panel__label">Output case</span></div>
-      <div class="resizable__resizer resizable__resizer--xaxis resizable__resizer--b"></div>
-      <div class="resizable-panel"><span class="resizable-panel__label">Log</span></div>
     </div>
 </div>
 <script src="/assets/js/libs/jquery.min.js"></script>

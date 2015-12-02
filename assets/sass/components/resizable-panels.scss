@@ -40,14 +40,22 @@
   border: 4px solid darken( #d8d8d8, 10% );
   position: relative;
 
+  &.is-fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
   &__panels {
     display: flex;
     align-content: stretch;
+    height: 100%;
   }
 
   &-panel {
     background-color: #fff;
-    height: 400px;
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -60,11 +68,10 @@
     flex: 1 0 100%;
   }
   &-panel__content {
-    margin: 26px 14px;
     overflow: scroll;
-    height: calc(100% - 52px);
     position: relative;
     z-index: 1;
+    background: #f4f4f4;
   }
   &-panel__codeblock {
     min-width: 200px;
@@ -138,6 +145,13 @@
   right: 0;
   z-index: 1;
   overflow: hidden;
+  &--handles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
   &__handle {
     background-color: #f7f7f7;
     box-sizing: border-box;
@@ -158,6 +172,11 @@
 
 .resizable[data-layout='inline'] {
   .resizable-panel {
+      height: 100%;
+    .resizable-panel__content {
+      margin: 26px 14px 14px;
+      height: calc(100% - 30px);
+    }
     &:first-child {
       .resizable-panel__label {
         left: 0;
@@ -169,6 +188,9 @@
     &:last-child {
       .resizable-panel__controls {
         right: 0;
+      }
+      .resizable-panel__content {
+        margin-right: 4px;
       }
     }
   }
@@ -191,10 +213,22 @@
   }
   .resizable-panel {
     flex: 1 0 50%;
-    height: 200px;
+    height: 50%;
+    .resizable-panel__content {
+      margin: 26px 14px 14px;
+      height: calc(100% - 40px);
+    }
     &:first-child {
       .resizable-panel__label {
         left: 0;
+      }
+      .resizable-panel__content {
+        margin-left: 4px;
+      }
+    }
+    &:nth-child(2) {
+      .resizable-panel__content {
+        margin-right: 4px;
       }
     }
     &:last-child {
@@ -205,11 +239,16 @@
       }
       .resizable-panel__content {
         margin-top: 36px;
-        height: calc(100% - 62px);
+        margin-left: 4px;
+        margin-right: 4px;
+        height: calc(100% - 40px);
       }
     }
   }
   .resizer-controls__handle {
+    &--active {
+      z-index: auto;
+    }
     &:nth-child(1) {
       @extend %handle--xaxis;
       height: calc(50% - 10px);
@@ -230,18 +269,63 @@
     flex-wrap: wrap;
     flex-direction: column;
     position: relative;
+    height: auto;
   }
   .resizable-panel {
     flex: 1;
     width: 50%;
-    height: 200px;
+    .resizable-panel__content {
+      margin: 26px 14px 14px;
+      height: calc(100% - 40px);
+    }
+    &:first-child {
+      .resizable-panel__label {
+        left: 0;
+      }
+      .resizable-panel__content {
+        margin-left: 4px;
+      }
+    }
+    &:nth-child(2) {
+      .resizable-panel__label {
+        top: 10px;
+        left: 0;
+      }
+      .resizable-panel__content {
+        margin-top: 36px;
+        margin-left: 4px;
+      }
+    }
+    &:last-child {
+      width: 50%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      .resizable-panel__content {
+        margin-right: 4px;
+        height: calc(100% - 30px);
+      }
+    }
   }
-  .resizable-panel:last-child {
-    width: 50%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    height: 100%;
+
+  .resizer-controls__handle {
+    &--active {
+      z-index: auto;
+    }
+    &:nth-child(1) {
+      @extend %handle--yaxis;
+      top: 50%;
+      left: 0;
+      margin-top: -10px;
+      width: 50%;
+    }
+    &:nth-child(2) {
+      @extend %handle--xaxis;
+      height: 100%;
+      left: 50%;
+      margin-left: -10px;
+    }
   }
 }
