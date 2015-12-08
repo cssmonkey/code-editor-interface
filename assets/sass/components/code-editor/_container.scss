@@ -1,0 +1,219 @@
+
+.code-editor {
+  margin: 0;
+  position: relative;
+  height: 68vh;
+  background: $codeEditor-background-color;
+  &.resize-panel--fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+  }
+
+  &.resizable-panels--resizing {
+    .code-editor-panel {
+      opacity: 0;
+    }
+  }
+  .code-editor__header,
+  .code-editor__footer {
+    padding: 10px 0;
+  }
+  .code-editor__controls-col {
+    float: left;
+  }
+  .code-editor__controls-col--align-right {
+    float: right;
+  }
+  .code-editor__controls-col--full-width {
+    width: 100%;
+    clear: both;
+  }
+  .code-editor__document-status {
+    margin: 0;
+    font-size: 14px;
+  }
+  // .code-editor__execute-btn {
+  //   // position: absolute;
+  //   // top: -50px;
+  //   // left: -7px;
+  //   // margin-left: 0;
+  // }
+  // &[data-layout] {
+  //   .code-editor__resizer-controls-wrapper,
+  //   .code-editor__layout-controls {
+  //     display: block;
+  //   }
+  //}
+  .code-editor__resizer-controls-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .code-editor__resizer-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .code-editor__handle {
+    background-color: $codeEditor-handle-background-color;
+    box-sizing: border-box;
+    position: absolute;
+    transition: background-color 0.5s ease;
+    overflow: hidden;
+    &.is-dragging {
+      background-color: darken($codeEditor-handle-background-color, 4%);
+    }
+  }
+  .code-editor__body {
+    height: calc(100% - 98px);
+    border: 6px solid $codeEditor-body-border-color;
+    position: relative;
+    box-shadow: 0 0 0 1px $codeEditor-body-boxshadow-color;
+  }
+  .code-editor__panels {
+    display: flex;
+    align-content: stretch;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+
+  .code-editor__layout-btn {
+    background-image: url(/assets/code-editor-toggle.png);
+    text-indent: -99999em;
+    overflow: hidden;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    outline: none;
+
+    &[data-layouttoggle="inline"] {
+      background-position: -48px 0;
+    }
+    &[data-layouttoggle="top"] {
+      background-position: 0 0;
+    }
+    &[data-layouttoggle="side"] {
+      background-position: -24px 0;
+    }
+  }
+}
+[data-layout="split"] .code-editor__handle:nth-child(2),
+[data-layout="bottom"] .code-editor__handle:nth-child(1),
+[data-layout="bottom"] .code-editor__handle:nth-child(2),
+[data-layout="top"] .code-editor__handle:nth-child(2),
+[data-layout="top"] .code-editor__handle:nth-child(3) {
+  margin-left: -5px;
+  border-left: 1px solid $codeEditor-handle-border-color;
+  border-right: 1px solid $codeEditor-handle-border-color;
+  cursor: col-resize;
+  width: 10px;
+  font: normal normal normal 14px/1 FontAwesome;
+  &:after {
+    content: '\f142';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: -4px 0 0;
+    width: 100%;
+    text-align: center;
+    color: darken($codeEditor-handle-color, 10%);
+  }
+  &:before {
+    border-left: 2px solid lighten($codeEditor-handle-background-color, 6%);
+    border-right: 2px solid lighten($codeEditor-handle-background-color, 6%);
+  }
+}
+
+
+[data-layout="split"] .code-editor__handle:nth-child(1),
+[data-layout="split"] .code-editor__handle:nth-child(3),
+[data-layout="bottom"] .code-editor__handle:nth-child(3),
+[data-layout="top"] .code-editor__handle:nth-child(1) {
+  top: 50%;
+  margin-top: -5px;
+  border-top: 1px solid $codeEditor-handle-border-color;
+  border-bottom: 1px solid $codeEditor-handle-border-color;
+  cursor: row-resize;
+  height: 10px;
+  font: normal normal normal 14px/1 FontAwesome;
+  &:after {
+    content: '\f141';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: -6px 0 0;
+    width: 100%;
+    text-align: center;
+    color: $codeEditor-handle-color;
+  }
+  &:before {
+    border-top: 2px solid lighten($codeEditor-handle-background-color, 6%);
+    border-bottom: 2px solid lighten($codeEditor-handle-background-color, 6%);
+  }
+}
+
+[data-layout="split"] {
+  .code-editor__handle:nth-child(1) {
+    width: 100%;
+  }
+  .code-editor__handle:nth-child(2) {
+    height: 100%;
+    left: 50%;
+    z-index: 1;
+  }
+  .code-editor__handle:nth-child(3) {
+    left: 50%;
+    display: none;
+  }
+}
+[data-layout="bottom"] {
+  .code-editor__handle:nth-child(1),
+  .code-editor__handle:nth-child(2) {
+    top: 0;
+    height: 50%;
+  }
+  .code-editor__handle:nth-child(1) {
+    left: 33.333333%;
+  }
+  .code-editor__handle:nth-child(2) {
+    left: 66.666666%;
+  }
+  .code-editor__handle:nth-child(3) {
+    width: 100%;
+    z-index: 1;
+  }
+}
+[data-layout="top"] {
+  .code-editor__handle:nth-child(1),
+  .code-editor__handle:nth-child(2),
+  .code-editor__handle:nth-child(3) {
+    top: 50%;
+  }
+  .code-editor__handle:nth-child(2),
+  .code-editor__handle:nth-child(3) {
+    height: 50%;
+  }
+  .code-editor__handle:nth-child(1) {
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .code-editor__handle:nth-child(2) {
+    left: 33.333333%;
+  }
+  .code-editor__handle:nth-child(3) {
+    left: 66.666666%;
+  }
+}

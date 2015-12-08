@@ -3,7 +3,7 @@ window.APP = (function (module, $) {
 
     var resizeTimerId;
     // global(ish) variable for the current width of the device
-    APP.deviceWidth = $(window).resize(function () {
+    var deviceWidth = $(window).resize(function () {
         clearTimeout(resizeTimerId);
         APP.deviceWidth = $(this).width();
         resizeTimerId = setTimeout(function () {
@@ -12,7 +12,10 @@ window.APP = (function (module, $) {
     }).width();
 
     $(function() {
-      module.draggablePanels();
+      var success = function(response){
+        $('.code-editor').resizablePanels()
+      }
+      var script = $.getScript('//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js').then(success)
     });
 
   return module;

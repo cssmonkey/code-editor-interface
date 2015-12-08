@@ -4,11 +4,9 @@
 
 @import 'libs/font-awesome';
 
-@import 'themes/default';
-
 @import 'base/reset';
 @import 'base/base';
-@import 'base/typography'; 
+@import 'base/typography';
 
 /* Components go here */
-@import 'components/resizable-panels';
+@import 'components/code-editor/code-editor';

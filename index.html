@@ -12,61 +12,79 @@
 </head>
 <body>
   <div class="container">
-    <div class="resizable" data-layout="side" data-fullscreen>
-      <div class="btn-group resizer-controls--layout-toggle">
-        <button class="btn" data-layouttoggle="inline">inline</button>
-        <button class="btn" data-layouttoggle="top">top</button>
-        <button class="btn btn--active" data-layouttoggle="side">side</button>
-        <button class="btn btn--execute btn--large">Run</button>
+    <div class="code-editor clearfix" data-layout="bottom">
+      <div class="code-editor__header clearfix">
+        <div class="code-editor__controls-col">
+          <p class="code-editor__document-status">Draft</p>
+        </div>
+        <div class="code-editor__controls-col code-editor__controls-col--align-right">
+          <button class="new_but new_blue code-editor__save-btn">Save</button>
+          <button class="new_but new_blue code-editor__execute-btn">Execute</button>
+          <select>
+            <option>something 1</option>
+            <option>something 2</option>
+            <option>something 3</option>
+          </select>
+        </div>
+        <div class="code-editor__controls-col code-editor__controls-col--full-width">
+
+        </div>
+
       </div>
-      <div class="resizer-controls">
-        <div class="btn-group resizer-controls--handles">
-          <div class="resizer-controls__handle"></div>
-          <div class="resizer-controls__handle"></div>
+      <div class="code-editor__body">
+        <div class="code-editor__resizer-controls-wrapper">
+          <div class="btn-group code-editor__resizer-controls">
+            <div class="code-editor__handle"></div>
+            <div class="code-editor__handle"></div>
+            <div class="code-editor__handle"></div>
+          </div>
+        </div>
+        <div class="code-editor__panels">
+          <div class="code-editor-panel">
+            <div class="code-editor-panel__header">
+              <span class="code-editor-panel__label">Code</span>
+            </div>
+            <div class="code-editor-panel__body">
+              <div class="code-editor-panel__codeblock" id="codeEditorCode">
+              </div>
+            </div>
+          </div>
+          <div class="code-editor-panel">
+            <div class="code-editor-panel__header">
+              <span class="code-editor-panel__label">Input</span>
+            </div>
+            <div class="code-editor-panel__body">
+              <div class="code-editor-panel__codeblock" id="codeEditorInput">
+              </div>
+            </div>
+          </div>
+          <div class="code-editor-panel">
+            <div class="code-editor-panel__header">
+              <span class="code-editor-panel__label">Output</span>
+            </div>
+            <div class="code-editor-panel__body">
+              <div class="code-editor-panel__codeblock" id="codeEditorOutput">
+              </div>
+            </div>
+          </div>
+
+          <div class="code-editor-panel">
+            <div class="code-editor-panel__header">
+              <span class="code-editor-panel__label">Log</span>
+            </div>
+            <div class="code-editor-panel__body">
+              <div class="code-editor-panel__codeblock" id="codeEditorLog">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="resizable__panels">
-        <div class="resizable-panel">
-          <div class="resizable-panel__header">
-            <div class="resizable-panel__controls">
-              <button class="btn resizer-btn resizer-btn--expand" title="Expand"><span>Expand</span></button>
-              <button class="btn resizer-btn resizer-btn--collapse" title="Collapse"><span>Collapse</span></button>
-            </div>
-            <span class="resizable-panel__label">Input case</span>
-          </div>
-          <div class="resizable-panel__content">
-            <div class="resizable-panel__codeblock">
-              <p>code editor goes here</p>
-            </div>
-          </div>
-        </div>
-        <div class="resizable-panel">
-          <div class="resizable-panel__header">
-            <div class="resizable-panel__controls">
-              <button class="btn resizer-btn resizer-btn--expand" title="Expand"><span>Expand</span></button>
-              <button class="btn resizer-btn resizer-btn--collapse" title="Collapse"><span>Collapse</span></button>
-            </div>
-            <span class="resizable-panel__label">Output case</span>
-          </div>
-          <div class="resizable-panel__content">
-            <div class="resizable-panel__codeblock">
-              <p>code editor goes here</p>
-            </div>
-          </div>
-        </div>
-        <div class="resizable-panel">
-          <div class="resizable-panel__header">
-            <div class="resizable-panel__controls">
-              <button class="btn resizer-btn resizer-btn--expand" title="Expand"><span>Expand</span></button>
-              <button class="btn resizer-btn resizer-btn--collapse" title="Collapse"><span>Collapse</span></button>
-            </div>
-            <span class="resizable-panel__label">Log</span>
-          </div>
-          <div class="resizable-panel__content">
-            <div class="resizable-panel__codeblock">
-              <p>code editor goes here</p>
-            </div>
-          </div>
+      <div class="code-editor__footer clearfix">
+        <div class="code-editor__controls-col code-editor__controls-col--align-right">
+          <button class="new_but new_blue code-editor__layout-btn selected" data-layouttoggle="split">split</button>
+          <button class="new_but new_blue code-editor__layout-btn" data-layouttoggle="top">top</button>
+          <button class="new_but new_blue code-editor__layout-btn" data-layouttoggle="bottom">bottom</button>
+          <button class="new_but new_blue code-editor__fullscreen-btn">fullscreen</button>
         </div>
       </div>
     </div>
@@ -77,10 +95,5 @@
 <script src="/assets/js/modules/module.draggablePanels.js"></script>
 <script src="/assets/js/app.js"></script>
 
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-</script>
 </body>
 </html>
