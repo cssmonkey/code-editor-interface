@@ -2189,7 +2189,8 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100%; }
+    height: 100%;
+    padding: 0 20px; }
   .code-editor.resizable-panels--resizing .code-editor-panel {
     opacity: 0; }
   .code-editor .code-editor__header,
@@ -2350,7 +2351,9 @@ p {
 
 [data-layout="top"] .code-editor__handle:nth-child(2),
 [data-layout="top"] .code-editor__handle:nth-child(3) {
-  height: 50%; }
+  height: 50%;
+  top: auto !important;
+  bottom: 0; }
 
 [data-layout="top"] .code-editor__handle:nth-child(1) {
   left: 0;

@@ -12,10 +12,11 @@ window.APP = (function (module, $) {
     }).width();
 
     $(function() {
-      var success = function(response){
-        $('.code-editor').resizablePanels()
-      }
-      var script = $.getScript('//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js').then(success)
+      $('.code-editor').resizablePanels()
+      // var success = function(response){
+      //   $('.code-editor').resizablePanels();
+      // }
+    //  var script = $.getScript('//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js').then(success)
     });
 
   return module;

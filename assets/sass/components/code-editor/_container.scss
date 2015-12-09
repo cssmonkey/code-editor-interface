@@ -11,6 +11,7 @@
     right: 0;
     bottom: 0;
     height: 100%;
+    padding: 0 20px;
   }
 
   &.resizable-panels--resizing {
@@ -36,18 +37,6 @@
     margin: 0;
     font-size: 14px;
   }
-  // .code-editor__execute-btn {
-  //   // position: absolute;
-  //   // top: -50px;
-  //   // left: -7px;
-  //   // margin-left: 0;
-  // }
-  // &[data-layout] {
-  //   .code-editor__resizer-controls-wrapper,
-  //   .code-editor__layout-controls {
-  //     display: block;
-  //   }
-  //}
   .code-editor__resizer-controls-wrapper {
     position: absolute;
     top: 0;
@@ -204,6 +193,8 @@
   .code-editor__handle:nth-child(2),
   .code-editor__handle:nth-child(3) {
     height: 50%;
+    top: auto!important;
+    bottom: 0;
   }
   .code-editor__handle:nth-child(1) {
     left: 0;

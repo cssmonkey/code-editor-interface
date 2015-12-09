@@ -142,20 +142,37 @@
           $bottom.css('height', diff);
         }
       }
-      else if (currentLayout === 'bottom') {
+      else if(currentLayout === 'bottom') {
+
         if(axis === 'x')
         {
-          var index = $(this).index(),
-              $otherResizer = index = 1 ? $(this).eq(0) : $(this).eq(1);
-          // console.log(index);
-          // debugger;
-          diff = containmentWidth - dragAmount;
+					var panelDragAmount,
+							otherPanelsDragAmount;
 
-          $panels = $panel.eq(index);
-          $otherPanels = $panel.eq();
+					diff = containmentWidth - dragAmount;
 
-          $panels.css('flex', '0 0 ' + dragAmount + 'px');
-          $otherPanels.css('flex', '0 0 ' + diff/2 + 'px');
+					if(handleIndx == 1) {
+						$otherResizer = $resizeHandle.eq(0);
+						$panels = $panel.eq(2);
+
+						panelDragAmount = diff;
+						otherPanelsDragAmount = dragAmount/2;
+					}
+					else if(handleIndx === 0) {
+						$otherResizer = $resizeHandle.eq(1);
+						$panels = $panel.eq(0);
+
+						panelDragAmount = dragAmount;
+						otherPanelsDragAmount = diff/2;
+					}
+
+					$otherPanels = $panel.filter(function(i) {return i != $panels.index() && i != 3});
+
+					var offset = $otherPanels.eq(0).position().left + $otherPanels.eq(0).outerWidth();
+
+          $panels.css('flex', '0 0 ' + panelDragAmount + 'px');
+         	$otherPanels.css('flex', '0 0 ' + otherPanelsDragAmount + 'px');
+					$otherResizer.css('left', offset);
         }
         else if(axis === 'y') {
           diff = containmentHeight - dragAmount;
@@ -164,19 +181,44 @@
           $bottom.css('height', diff);
         }
       }
+			else if(currentLayout === 'top') {
+				if(axis === 'x')
+        {
+					var panelDragAmount,
+							otherPanelsDragAmount;
 
+					diff = containmentWidth - dragAmount;
 
-      // if(currentLayout === 'split') {
-      //
-      // }
-      // else if (currentLayout === 'bottom'){
-      //
-      // }
-      // else if (currentLayout === 'top'){
-      //
-      // }
+					if(handleIndx == 1) {
+						$otherResizer = $resizeHandle.eq(2);
+						$panels = $panel.eq(1);
 
+						panelDragAmount = dragAmount;
+						otherPanelsDragAmount = diff/2;
+					}
+					else if(handleIndx === 2) {
+						$otherResizer = $resizeHandle.eq(1);
+						$panels = $panel.eq(3);
 
+						panelDragAmount = diff;
+						otherPanelsDragAmount = dragAmount/2;
+					}
+
+					$otherPanels = $panel.filter(function(i) {return i != $panels.index() && i > 0});
+
+					var offset = $otherPanels.eq(0).position().left + $otherPanels.eq(0).outerWidth();
+
+          $panels.css('flex', '0 0 ' + panelDragAmount + 'px');
+         	$otherPanels.css('flex', '0 0 ' + otherPanelsDragAmount + 'px');
+					$otherResizer.css('left', offset);
+        }
+        else if(axis === 'y') {
+          diff = containmentHeight - dragAmount;
+          $top.css('height', dragAmount);
+          $otherResizer.css('height', diff);
+          $bottom.css('height', diff);
+        }
+			}
     }
     var onDragEnd = function(e) {
       $(window).trigger('onResizePanels');
@@ -188,6 +230,10 @@
       setDragOptions(currentLayout, $container, $resizeHandle);
       containmentHeight = $(selector.outer, $container).height();
       containmentWidth = $(selector.outer, $container).width();
+
+			$resizeHandle.each(function(i) {
+				$(this).data('index', $(this).index());
+			});
 
       // bind events
       $resizeHandle.on('dragMove', onDrag);
