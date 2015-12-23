@@ -36,19 +36,19 @@
         $toggleFullScreenBtn = $(selector.fullscreenToggleBtn, $container),
         currentLayout,
         containmentHeight,
-        containmentWidth;
+        containmentWidth,
+				btnSelectedClass = 'selected';
 
     var toggleLayout = function(e) {
       e.preventDefault();
-      var btnSelectedClass = 'selected',
-          isSelected = $(this).hasClass(btnSelectedClass),
+      var isSelected = $(this).hasClass(btnSelectedClass),
           thisLayout = $(this).data('layouttoggle');
 
       if(isSelected) {
         return false;
       }
 
-      $('.' + btnSelectedClass, $container).removeClass(btnSelectedClass);
+      $('[data-layouttoggle].' + btnSelectedClass, $container).removeClass(btnSelectedClass);
       $(this).addClass(btnSelectedClass);
 
       $container.attr('data-layout', thisLayout);
@@ -68,7 +68,10 @@
         $container.addClass('resize-panel--fullscreen');
       }
 
+			$(this).toggleClass(btnSelectedClass);
+
       self.reset();
+			self.update();
     }
 
     var setDragOptions = function(layout, $container, $resizeHandle) {
@@ -104,6 +107,10 @@
               $resizerHandle_y = $resizeHandle.eq(0);
               $topPanels = $panel.eq(0);
               $bottomPanels = $panel.filter(function(i){return i > 0});
+
+							// needed for safari...
+							var initPosition = $resizerHandle_y.position().top;
+							$resizerHandle_y.css('top', initPosition);
             }
           }
 
@@ -261,7 +268,7 @@
     self.reset = function() {
       $panel.removeAttr('style');
       $resizeHandle.removeAttr('style').removeClass('active');
-
+			$(window).trigger('onResizePanels');
       containmentHeight = $(selector.outer, $container).height();
       containmentWidth = $(selector.outer, $container).width();
     }

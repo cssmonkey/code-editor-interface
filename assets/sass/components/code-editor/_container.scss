@@ -12,6 +12,7 @@
     bottom: 0;
     height: 100%;
     padding: 0 20px;
+    z-index: 99999;
   }
 
   &.resizable-panels--resizing {
@@ -21,7 +22,13 @@
   }
   .code-editor__header,
   .code-editor__footer {
+    margin: 0;
     padding: 10px 0;
+
+    .btn-group {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
   .code-editor__controls-col {
     float: left;
@@ -34,7 +41,7 @@
     clear: both;
   }
   .code-editor__document-status {
-    margin: 0;
+    margin: 7px 0;
     font-size: 14px;
   }
   .code-editor__resizer-controls-wrapper {
@@ -64,7 +71,7 @@
     }
   }
   .code-editor__body {
-    height: calc(100% - 98px);
+    height: calc(100% - 120px);
     border: 6px solid $codeEditor-body-border-color;
     position: relative;
     box-shadow: 0 0 0 1px $codeEditor-body-boxshadow-color;
@@ -78,23 +85,28 @@
 
   .code-editor__layout-btn {
     background-image: url(/assets/code-editor-toggle.png);
-    text-indent: -99999em;
-    overflow: hidden;
     padding: 0;
     width: 24px;
     height: 24px;
     background-size: cover;
     background-repeat: no-repeat;
     outline: none;
-
-    &[data-layouttoggle="inline"] {
-      background-position: -48px 0;
+    &.code-editor__fullscreen-btn  {
+      background-image: none;
     }
-    &[data-layouttoggle="top"] {
+    &[data-layouttoggle="split"] {
       background-position: 0 0;
     }
-    &[data-layouttoggle="side"] {
+    &[data-layouttoggle="bottom"] {
       background-position: -24px 0;
+    }
+    &[data-layouttoggle="top"] {
+      background-position: -48px 0;
+    }
+  }
+  .code-editor__fullscreen-btn.selected {
+    .fa-expand:before {
+      content: '\f066';
     }
   }
 }

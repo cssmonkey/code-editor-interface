@@ -12,11 +12,36 @@ window.APP = (function (module, $) {
     }).width();
 
     $(function() {
-      $('.code-editor').resizablePanels()
-      // var success = function(response){
-      //   $('.code-editor').resizablePanels();
-      // }
-    //  var script = $.getScript('//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js').then(success)
+      var script,
+          loadEditor;
+
+      loadEditor = function(response){
+        var $codeBlock = $('.code-editor-panel__codeblock');
+
+        $('.code-editor').resizablePanels();
+
+        $codeBlock.each(function() {
+          var id = $(this).attr('id'),
+              mode = $(this).data('mode'),
+              thisEditor = ace.edit(id);
+
+          thisEditor.setTheme('ace/theme/chrome');
+          thisEditor.getSession().setMode(mode);
+
+          $(window).on('onResizePanels', function() {
+            thisEditor.resize();
+          });
+        });
+
+
+      }
+
+      if(typeof ace === 'undefined') {
+        script = $.getScript('//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js').then(loadEditor)
+      }
+      else {
+        loadEditor();
+      }
     });
 
   return module;

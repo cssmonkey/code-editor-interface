@@ -14,21 +14,19 @@
   <div class="container">
     <div class="code-editor clearfix" data-layout="top">
       <div class="code-editor__header clearfix">
-        <div class="code-editor__controls-col">
-          <p class="code-editor__document-status">Draft</p>
+        <div class="code-editor__controls-col" >
+          <div class="btn-group">
+            <button title="Discard changes" class="btn code-editor__revert-btn">Revert</button>
+            <button title="Save as Draft" class="btn code-editor__save-btn">Save</button>
+            <button title="Run function" class="btn code-editor__execute-btn">Execute</button>
+          </div>
         </div>
         <div class="code-editor__controls-col code-editor__controls-col--align-right">
-          <button class="new_but new_blue code-editor__save-btn">Save</button>
-          <button class="new_but new_blue code-editor__execute-btn">Execute</button>
-          <select>
-            <option>something 1</option>
-            <option>something 2</option>
-            <option>something 3</option>
-          </select>
+          <div class="btn-group">
+            <button title="Publish function" class="btn btn-large new_but new_blue code-editor__publish-btn" {{action 'publishCode'}}>Publish</button>
+          </div>
         </div>
-        <div class="code-editor__controls-col code-editor__controls-col--full-width">
-
-        </div>
+        <div class="code-editor__controls-col code-editor__controls-col--full-width"></div>
 
       </div>
       <div class="code-editor__body">
@@ -42,56 +40,57 @@
         <div class="code-editor__panels">
           <div class="code-editor-panel">
             <div class="code-editor-panel__header">
-              <span class="code-editor-panel__label">Code</span>
+              <span class="code-editor-panel__label">Label</span>
             </div>
             <div class="code-editor-panel__body">
-              <div class="code-editor-panel__codeblock" id="codeEditorCode">
+              <div class="code-editor-panel__codeblock" id="CodeBlockCode" data-mode="javascript">
               </div>
             </div>
           </div>
           <div class="code-editor-panel">
             <div class="code-editor-panel__header">
-              <span class="code-editor-panel__label">Input</span>
+              <span class="code-editor-panel__label">Label</span>
             </div>
-            <div class="code-editor-panel__body">
-              <div class="code-editor-panel__codeblock" id="codeEditorInput">
+            <div class="code-editor-panel__body"> 
+              <div class="code-editor-panel__codeblock" id="CodeBlockInput" data-mode="json">
               </div>
             </div>
           </div>
           <div class="code-editor-panel">
             <div class="code-editor-panel__header">
-              <span class="code-editor-panel__label">Output</span>
+              <span class="code-editor-panel__label">Label</span>
             </div>
             <div class="code-editor-panel__body">
-              <div class="code-editor-panel__codeblock" id="codeEditorOutput">
+              <div class="code-editor-panel__codeblock" id="CodeBlockOutput" data-mode="json">
               </div>
             </div>
           </div>
-
           <div class="code-editor-panel">
             <div class="code-editor-panel__header">
-              <span class="code-editor-panel__label">Log</span>
+              <span class="code-editor-panel__label">Label</span>
             </div>
             <div class="code-editor-panel__body">
-              <div class="code-editor-panel__codeblock" id="codeEditorLog">
+              <div class="code-editor-panel__codeblock" id="CodeBlockLog" data-mode="text">
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="code-editor__footer clearfix">
+        <div class="code-editor__controls-col">
+          <p class="code-editor__document-status">Lorem Ipsum</p>
+        </div>
         <div class="code-editor__controls-col code-editor__controls-col--align-right">
-          <button class="new_but new_blue code-editor__layout-btn selected" data-layouttoggle="split">split</button>
-          <button class="new_but new_blue code-editor__layout-btn" data-layouttoggle="top">top</button>
-          <button class="new_but new_blue code-editor__layout-btn" data-layouttoggle="bottom">bottom</button>
-          <button class="new_but new_blue code-editor__fullscreen-btn">fullscreen</button>
+          <button class="new_but new_blue code-editor__layout-btn" title="split" data-layouttoggle="split"><span class="hide-text">split</span></button>
+          <button class="new_but new_blue code-editor__layout-btn selected" title="top" data-layouttoggle="top"><span class="hide-text">top</span></button>
+          <button class="new_but new_blue code-editor__layout-btn" title="bottom" data-layouttoggle="bottom"><span class="hide-text">bottom</span></button>
+          <button class="new_but new_blue code-editor__layout-btn code-editor__fullscreen-btn" title="toggle fullscreen"><i class="fa fa-expand"></i></button>
         </div>
       </div>
     </div>
 </div>
 <script src="/assets/js/libs/jquery.min.js"></script>
 <script src="/assets/js/libs/draggabilly.pkgd.min.js"></script>
-<script src="/assets/js/libs/ace/ace.js"></script>
 <script src="/assets/js/modules/module.draggablePanels.js"></script>
 <script src="/assets/js/app.js"></script>
 
